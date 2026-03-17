@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+body {
+  background-color: white;
+}
+span {
+  font-size: 1.25rem;
+}
+h3 {
+  margin: 5px 0px;
+}
+#capture {
+  margin: 5px;
+}
+.logo-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.logo {
+  width: 150px;
+  height: auto;
+}
+.todo-item {
+  display: flex;
+  border-bottom: solid thin lightgray;
+  height: 70px;
+  align-items: center;
+  padding: 2px;
+}
+.task-text {
+  width: 80%;
+  padding: 2px 5px;
+  min-width: 50%;
+}
+
+/* Buttons */
+.error-btn,
+.check-btn {
+  font-size: 0.75rem;
+  width: 45%;
+  height: 100%;
+  padding: 5px;
+  border-radius: 2px;
+  border: solid 1px gray;
+  background-color: whitesmoke;
+}
+.todo-item button.error-checked {
+  background-color: red;
+  border-radius: 4px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  width: 20%;
+  max-width: 20%;
+}
+.note-btn {
+  width: 10%;
+  margin: 2px 5px;
+  padding: 5px 0;
+  border-radius: 6px;
+  border: solid 1px gray;
+  background-color: whitesmoke;
+}
+.note-input {
+  width: 20%;
+  margin: 2px;
+}
+
+.checkbox {
+  background-color: limegreen;
+  border-radius: 4px;
+}
+
+/* Important Guidlines */
+#guidlines-btn {
+  margin: 10px 0px;
+  font-size: 1rem;
+  padding: 5px;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border: solid 1px black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
+  transition: 200ms ease-in-out;
+}
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.modal-header button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.modal-body {
+  padding: 10px 25px;
+}
+#overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.195);
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+}
+#overlay.active {
+  pointer-events: all;
+  opacity: 1;
+}
+@media (max-width:375px) {
+    span{
+        font-size: 0.75rem;
+    }
+}
