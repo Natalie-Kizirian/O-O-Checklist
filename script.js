@@ -78,20 +78,3 @@ function closeModal(modal) {
   overlay.classList.remove("active");
 }
 
-//Local Storage
-
-/* function saveData() {
-  const data = [];
-
-  allTasks.forEach((item) => {
-    const taskData = {
-      checked: item.querySelector("input").checked,
-      note: item.querySelector(".note-final").innerText,
-      isError: item.querySelector(".error-btn").classList.contains("error-checked"),
-    };
-    data.push(taskData);
-  });
-
-  localStorage.setItem("myList", JSON.stringify(data));
-}
- */
