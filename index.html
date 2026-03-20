@@ -5,14 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
-    <style>
-      .note-input {
-        display: none;
-      }
-      .note-btn {
-        width: 55px;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
     <div id="capture">
@@ -20,7 +13,11 @@
         <img class="logo" src="https://assets.guesty.com/image/upload/s--Z80siFK_--/v1731332091/production/6285387aa8d02b0033b8f641/private/zd0a54m5fhy6algcuxzt.png" alt="logo" />
       </div>
 
-      <button data-modal-target="#modal" id="guidlines-btn">Important Guidlines</button>
+      <div class="head-buttons">
+        <button data-modal-target="#modal" id="guidlines-btn">Important Guidlines</button>
+        <button id="reset-btn">Reset</button>
+      </div>
+
       <div class="modal" id="modal">
         <div class="modal-header">
           <h2 class="modal-title">Important Guidlines</h2>
@@ -33,15 +30,18 @@
             <b>15-25 minutes</b>
             ,depending on the size. If it takes less, it means the check was not thorough enough.
           </li>
-          <br>
+          <br />
           <li>
             <b>Submission:</b>
             you send a
             <b>photo of the completed checklist</b>
             to the cleaning group.
           </li>
-          <br>
-          <li><b>Reporting:</b> Include comments and photos if anything was found during the inspection to ensure it doesn't happen again.</li>
+          <br />
+          <li>
+            <b>Reporting:</b>
+            Include comments and photos if anything was found during the inspection to ensure it doesn't happen again.
+          </li>
         </div>
       </div>
       <div class="a" id="overlay"></div>
@@ -58,9 +58,9 @@
           Ensure the water heater is
           <b>switched OFF.</b>
         </span>
-        <button class="note-btn">Note</button>
-        <input type="text" class="note-input" />
         <span class="note-final"></span>
+        <input type="text" class="note-input" />
+        <button class="note-btn">Note</button>
       </section>
 
       <section class="todo-item">
@@ -73,9 +73,9 @@
           Ensure the TV interface/language is set to
           <b>English.</b>
         </span>
-        <button class="note-btn">Note</button>
-        <input type="text" class="note-input" />
         <span class="note-final"></span>
+        <input type="text" class="note-input" />
+        <button class="note-btn">Note</button>
       </section>
 
       <section class="todo-item">
@@ -89,95 +89,113 @@
           <b>working</b>
           (check batteries).
         </span>
-        <button class="note-btn">Note</button>
-        <input type="text" class="note-input" />
         <span class="note-final"></span>
+        <input type="text" class="note-input" />
+        <button class="note-btn">Note</button>
       </section>
 
-      <!-- <section class="todo-item">
-        <button class="error-btn">X</button>
+      <section class="todo-item">
+        <div class="buttons">
+          <button class="check-btn">✔</button>
+          <button class="error-btn">✖</button>
+        </div>
         <span class="task-text">
           <b>Climate Control:</b>
           Set the AC/Heating temperature according to the current season.
         </span>
-        <button class="note-btn">Note</button>
-        <input type="text" class="note-input" />
         <span class="note-final"></span>
+        <input type="text" class="note-input" />
+        <button class="note-btn">Note</button>
       </section>
 
-      <div class="todo-item">
-        <input type="checkbox" />
+      <section class="todo-item">
+        <div class="buttons">
+          <button class="check-btn">✔</button>
+          <button class="error-btn">✖</button>
+        </div>
         <span class="task-text">
           <b>Remotes Placement:</b>
           TV and AC remotes in each room on the side table near the sofa or bed.
         </span>
-        <button class="note-btn">Note</button>
-        <input type="text" class="note-input" />
         <span class="note-final"></span>
-        <button class="error-btn">X</button>
-      </div>
+        <input type="text" class="note-input" />
+        <button class="note-btn">Note</button>
+      </section>
 
-      <div class="todo-item">
-        <input type="checkbox" />
+      <section class="todo-item">
+        <div class="buttons">
+          <button class="check-btn">✔</button>
+          <button class="error-btn">✖</button>
+        </div>
         <span class="task-text">
           <b>Internet:</b>
           Check Internet speed to ensure Wi-Fi is working at full capacity.
         </span>
-        <button class="note-btn">Note</button>
-        <input type="text" class="note-input" />
         <span class="note-final"></span>
-        <button class="error-btn">X</button>
-      </div>
+        <input type="text" class="note-input" />
+        <button class="note-btn">Note</button>
+      </section>
 
-      <div class="todo-item">
-        <input type="checkbox" />
+      <section class="todo-item">
+        <div class="buttons">
+          <button class="check-btn">✔</button>
+          <button class="error-btn">✖</button>
+        </div>
         <span class="task-text">
           <b>Walls Inspection:</b>
           Check all apartment walls for dampness, moisture or peeling paint.
         </span>
-        <button class="note-btn">Note</button>
-        <input type="text" class="note-input" />
         <span class="note-final"></span>
-        <button class="error-btn">X</button>
-      </div>
+        <input type="text" class="note-input" />
+        <button class="note-btn">Note</button>
+      </section>
 
-      <div class="todo-item">
-        <input type="checkbox" />
+      <section class="todo-item">
+        <div class="buttons">
+          <button class="check-btn">✔</button>
+          <button class="error-btn">✖</button>
+        </div>
         <span class="task-text">
           <b>Sofa Bed (If appicable):</b>
           Sofa is prepared for guest, cushions are in the basket or bedroom.
         </span>
-        <button class="note-btn">Note</button>
-        <input type="text" class="note-input" />
         <span class="note-final"></span>
-        <button class="error-btn">X</button>
-      </div>
+        <input type="text" class="note-input" />
+        <button class="note-btn">Note</button>
+      </section>
 
-      <div class="todo-item">
-        <input type="checkbox" />
+      <section class="todo-item">
+        <div class="buttons">
+          <button class="check-btn">✔</button>
+          <button class="error-btn">✖</button>
+        </div>
         <span class="task-text">
           <b>Balcony:</b>
           Floor swept, railings wiped and
           <b>drainage clean and free of leaves/debris</b>
         </span>
-        <button class="note-btn">Note</button>
-        <input type="text" class="note-input" />
         <span class="note-final"></span>
-        <button class="error-btn">X</button>
-      </div>
+        <input type="text" class="note-input" />
+        <button class="note-btn">Note</button>
+      </section>
 
-      <div class="todo-item">
-        <input type="checkbox" />
+      <section class="todo-item">
+        <div class="buttons">
+          <button class="check-btn">✔</button>
+          <button class="error-btn">✖</button>
+        </div>
         <span class="task-text">
           <b>No Smoking Evidence:</b>
-          Check for cigarette
+          
         </span>
-        <button class="note-btn">Note</button>
-        <input type="text" class="note-input" />
         <span class="note-final"></span>
-        <button class="error-btn">X</button>
-      </div> -->
+        <input type="text" class="note-input" />
+        <button class="note-btn">Note</button>
+      </section>
+
+  
     </div>
     <script src="./script.js"></script>
+    <script src="./modal,js"></script>
   </body>
 </html>

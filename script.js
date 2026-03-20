@@ -1,29 +1,65 @@
 const allToDoItems = document.querySelectorAll(".todo-item");
+const resetBtn = document.querySelector("#reset-btn");
 
-allToDoItems.forEach((task) => {
-  const checkbox = task.querySelector(".check-btn");
+resetBtn.addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
+allToDoItems.forEach((task, index) => {
+  const checkBtn = task.querySelector(".check-btn");
   const noteBtn = task.querySelector(".note-btn");
   const input = task.querySelector(".note-input");
   const finalSpan = task.querySelector(".note-final");
   const errorBtn = task.querySelector(".error-btn");
 
+  const taskKey = `task_${index}`;
+
+  const saveState = () => {
+    const state = {
+      error: errorBtn.classList.contains("error-checked"),
+      check: checkBtn.classList.contains("checked"),
+      note: input.value.trim(),
+    };
+    localStorage.setItem(taskKey, JSON.stringify(state));
+  };
+  const saved = JSON.parse(localStorage.getItem(taskKey));
+
+  if (saved) {
+    errorBtn.classList.toggle("error-checked", saved.error);
+    checkBtn.classList.toggle("checked", saved.check);
+    if (saved.note) {
+      input.value = saved.note;
+      finalSpan.innerText = `(${saved.note})`;
+      noteBtn.textContent = "Delete";
+    }
+  }
+
   noteBtn.addEventListener("click", () => {
-    noteBtn.style.display = "none";
-    input.style.display = "inline";
-    input.focus();
+    if (noteBtn.innerText === "Delete") {
+      input.value = "";
+      finalSpan.innerText = "";
+      noteBtn.innerText = "Note";
+      saveState();
+    } else {
+      noteBtn.style.display = "none";
+      input.style.display = "inline";
+      input.focus();
+    }
   });
 
-  //Input Button
   input.addEventListener("blur", () => {
-    const val = input.value;
     input.style.display = "none";
-    if (val !== "") {
-      finalSpan.innerText = `(${val})`;
+    if (input.value.trim() !== "") {
+      finalSpan.innerText = `(${input.value})`;
+      noteBtn.innerText = "Delete";
+      noteBtn.style.display = "inline";
     } else {
+      noteBtn.innerText = "Note";
       noteBtn.style.display = "inline";
     }
-    // saveData();
+    saveState();
   });
+
   // Text edit
   finalSpan.addEventListener("click", () => {
     finalSpan.textContent = "";
@@ -31,50 +67,18 @@ allToDoItems.forEach((task) => {
     input.focus();
   });
 
-  //X Button
+  //error Btn
   errorBtn.addEventListener("click", () => {
     errorBtn.classList.toggle("error-checked");
+    checkBtn.classList.remove("checked");
+    saveState();
   });
+
   //Checkbox
-  checkbox.addEventListener("click", () => {
-    checkbox.classList.toggle("checkbox");
+  checkBtn.addEventListener("click", () => {
+    checkBtn.classList.toggle("checked");
+    errorBtn.classList.remove("error-checked");
+    saveState();
   });
 });
-
-
-
-// Modal Pop Up
-const openModalButtons = document.querySelectorAll("[data-modal-target]");
-const closeModalButtons = document.querySelectorAll("[data-close-button]");
-const overlay = document.getElementById("overlay");
-
-openModalButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const modal = document.querySelector(button.dataset.modalTarget);
-    openModal(modal);
-  });
-});
-overlay.addEventListener("click", () => {
-  const modals = document.querySelectorAll(".modal.active");
-  modals.forEach((modal) => {
-    closeModal(modal);
-  });
-});
-
-closeModalButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const modal = button.closest(".modal");
-    closeModal(modal);
-  });
-});
-function openModal(modal) {
-  if (modal == null) return;
-  modal.classList.add("active");
-  overlay.classList.add("active");
-}
-function closeModal(modal) {
-  if (modal == null) return;
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
-}
 
