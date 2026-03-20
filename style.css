@@ -12,9 +12,13 @@ body {
 }
 span {
   font-size: 1.25rem;
+  color: black;
 }
 h3 {
   margin: 5px 0px;
+  display: flex;
+  justify-content: center;
+  color: black;
 }
 #capture {
   margin: 5px;
@@ -52,9 +56,10 @@ h3 {
   border-radius: 2px;
   border: solid 1px gray;
   background-color: whitesmoke;
+  cursor: pointer;
 }
 .todo-item button.error-checked {
-  background-color: red;
+  background-color: rgb(250, 53, 53);
   border-radius: 4px;
 }
 
