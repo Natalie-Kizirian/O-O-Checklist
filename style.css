@@ -21,8 +21,9 @@ h2 {
   color: black;
 }
 #capture {
-  margin: 5px;
+  margin: 80px 5px;
   padding: 0px 30px;
+  color: black;
 }
 .logo-div {
   width: 100%;
