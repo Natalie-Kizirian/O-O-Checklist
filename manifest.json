@@ -1,7 +1,7 @@
 {
   "name": "O&O Checklist",
   "short_name": "O&O Checklist",
-  "start_url": "/",
+  "start_url": "/O-O-Checklist/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
