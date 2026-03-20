@@ -14,8 +14,8 @@ span {
   font-size: 1.25rem;
   color: black;
 }
-h3 {
-  margin: 5px 0px;
+h2 {
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   color: black;
