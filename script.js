@@ -82,3 +82,13 @@ allToDoItems.forEach((task, index) => {
   });
 });
 
+const downloadBtn = document.querySelector("#download-btn");
+
+downloadBtn.addEventListener("click", () => {
+  html2canvas(document.querySelector("#capture")).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "checklist.png";
+    link.href = canvas.toDataURL();
+    link.click();
+  });
+});
