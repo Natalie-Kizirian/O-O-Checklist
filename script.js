@@ -47,7 +47,7 @@ allToDoItems.forEach((task, index) => {
     }
   });
 
-  input.addEventListener("blur", () => {
+  function inputDisplay() {
     input.style.display = "none";
     if (input.value.trim() !== "") {
       finalSpan.innerText = `(${input.value})`;
@@ -58,6 +58,15 @@ allToDoItems.forEach((task, index) => {
       noteBtn.style.display = "inline";
     }
     saveState();
+  }
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      inputDisplay();
+    }
+  });
+  input.addEventListener("blur", () => {
+    inputDisplay();
   });
 
   // Text edit
@@ -85,7 +94,7 @@ allToDoItems.forEach((task, index) => {
 const downloadBtn = document.querySelector("#download-btn");
 
 downloadBtn.addEventListener("click", () => {
-  html2canvas(document.querySelector("#capture")).then(canvas => {
+  html2canvas(document.querySelector("#capture")).then((canvas) => {
     const link = document.createElement("a");
     link.download = "checklist.png";
     link.href = canvas.toDataURL();
